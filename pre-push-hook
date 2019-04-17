@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+npm i
+npm run coverage
+npm run package
+git add infrastructure/get-lambda.zip
+git commit --amend --no-edit
