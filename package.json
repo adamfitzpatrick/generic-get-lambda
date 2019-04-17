@@ -4,7 +4,7 @@
   "description": "Standardized lambda to fetch items from an AWS DynamoDB table based on environment variables",
   "main": "index.js",
   "scripts": {
-    "package": "npm ci && npm prune --production && zip -r ./infrastructure/get-lambda.zip . -x *.git* -x *.nyc_output*",
+    "package": "npm ci && npm prune --production && zip -r ./infrastructure/get-lambda.zip . -x *.git* -x *.nyc_output* -x *infrastructure*",
     "coverage": "nyc --check-coverage --lines 100 --functions 100 --branches 100 npm test",
     "test": "mocha **/*.test.js",
     "tdd": "npm test -- --watch"
@@ -15,7 +15,8 @@
   },
   "keywords": [
     "DynamoDB",
-    "AWS"
+    "AWS",
+    "terraform"
   ],
   "author": "Adam Fitzpatrick",
   "license": "ISC",
@@ -43,6 +44,5 @@
       "beforeEach",
       "afterEach"
     ]
-  },
-  "dependencies": {}
+  }
 }
