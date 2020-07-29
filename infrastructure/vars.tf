@@ -14,11 +14,30 @@ variable "table_name" {
     description = "DynamoDB table from which the lambda obtains data"
 }
 
-variable "primary_key" {
+variable "primary_key_column_name" {
     description = "Primary key name for the DynamoDB source table"
 }
 
-variable "sort_key" {
+variable "sort_key_column_name" {
     description = "Sort key name for the DynamoDB source table"
     default     = ""
+}
+
+variable "primary_key_event_path" {
+    description = "Path along the event object where the primary key can be found"
+}
+
+variable "sort_key_event_path" {
+    description = "Path along the event object where the sort key can be found"
+    default     = "not.a.valid.path.by.default"
+}
+
+variable "region" {
+    description = "AWS region"
+    default     = "us-west-2"
+}
+
+variable "cloudwatch_log_retention_in_days" {
+    description = "Amount of time to retain log data"
+    default     = "365"
 }
